@@ -1,0 +1,804 @@
+.house-home {
+  overflow: clip;
+  --olive: #283d30;
+  --tomato: #b84e2d;
+}
+.house-home em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+.house-hero {
+  position: relative;
+  min-height: 740px;
+  height: calc(100svh - 110px);
+  max-height: 1000px;
+  margin: 0 5%;
+  isolation: isolate;
+}
+.house-topline {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 26px;
+  font-size: 9px;
+  letter-spacing: 1.6px;
+}
+.house-topline i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  background: var(--tomato);
+  border-radius: 50%;
+}
+.hero-watermark {
+  position: absolute;
+  left: 23%;
+  top: 26%;
+  font-size: clamp(130px, 18vw, 285px);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+  color: #e9e5d9;
+  z-index: -1;
+  user-select: none;
+}
+.house-hero-copy {
+  position: relative;
+  padding-top: clamp(80px, 12vh, 145px);
+  z-index: 3;
+  pointer-events: none;
+}
+.house-hero-copy .eyebrow {
+  color: #777969;
+  font-size: 9px;
+}
+.house-hero-copy h1 {
+  margin-top: 25px;
+  font-size: clamp(68px, 6.7vw, 110px);
+  line-height: 1.04;
+  font-weight: 500;
+  letter-spacing: -0.065em;
+}
+.house-hero-copy h1 em {
+  color: var(--tomato);
+  letter-spacing: -0.07em;
+}
+.house-hero-copy p {
+  margin: 27px 0;
+  font-size: 14px;
+}
+.house-hero-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  pointer-events: auto;
+  width: fit-content;
+}
+.house-hero-actions .pill.dark {
+  background: var(--olive);
+  border-color: var(--olive);
+  padding: 19px 24px;
+}
+.house-hero-actions .pill.dark:hover {
+  background: var(--tomato);
+  border-color: var(--tomato);
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+}
+.text-link:hover {
+  color: var(--tomato);
+}
+.house-hero-art {
+  position: absolute;
+  width: 66%;
+  height: 88%;
+  top: 4%;
+  right: -6%;
+  z-index: 1;
+}
+.hero-orbit {
+  position: absolute;
+  border: 1px solid #cdc7b780;
+  border-radius: 50%;
+  width: 80%;
+  height: 68%;
+  left: 10%;
+  top: 17%;
+  transform: rotate(-24deg);
+  pointer-events: none;
+}
+.orbit-two {
+  width: 92%;
+  height: 49%;
+  left: 3%;
+  top: 27%;
+  transform: rotate(28deg);
+}
+.orbit-caption {
+  position: absolute;
+  right: 10%;
+  top: 17%;
+  transform: rotate(9deg);
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #878475;
+}
+.house-stamp {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  width: 108px;
+  height: 108px;
+  background: var(--tomato);
+  color: #fff6df;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  transform: rotate(12deg);
+  z-index: 2;
+  box-shadow:
+    0 0 0 7px #f5f3ec,
+    0 0 0 8px #c9c4b8;
+}
+.house-stamp span {
+  font-size: 7px;
+  letter-spacing: 1.2px;
+}
+.hero-product-caption {
+  position: absolute;
+  bottom: 116px;
+  right: 3%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  z-index: 2;
+}
+.caption-rule {
+  width: 45px;
+  height: 1px;
+  background: var(--tomato);
+  transform: rotate(-35deg);
+}
+.hero-product-caption div > span {
+  font-size: 9px;
+  letter-spacing: 1.6px;
+}
+.hero-product-caption small {
+  display: block;
+  font-size: 11px;
+  color: #777969;
+  margin-top: 6px;
+}
+.hero-product-caption > b {
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #bab6a7;
+  margin-left: 12px;
+}
+.house-hero-bottom {
+  position: absolute;
+  bottom: 26px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.house-hero-bottom a {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.scroll-circle {
+  border: 1px solid #ccc7bb;
+  width: 36px;
+  height: 42px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+}
+.little-star {
+  color: var(--tomato);
+  font-size: 28px;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+.house-marquee {
+  overflow: hidden;
+  background: var(--tomato);
+  color: #fff5de;
+  padding: 21px 0;
+  transform: rotate(-1.5deg) scale(1.02);
+}
+.house-marquee > div {
+  display: flex;
+  width: max-content;
+  animation: house-marquee 35s linear infinite;
+}
+.house-marquee span {
+  flex: 0 0 auto;
+  white-space: pre;
+  font-size: 13px;
+  letter-spacing: 1.7px;
+}
+.house-marquee b {
+  font-size: 20px;
+  margin: 0 35px;
+  vertical-align: middle;
+}
+@keyframes house-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.house-intro {
+  padding: 110px 7% 85px;
+}
+.house-intro > .eyebrow {
+  color: var(--tomato);
+}
+.house-intro > div {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 28px;
+}
+.house-intro h2 {
+  font-size: clamp(36px, 4.3vw, 66px);
+  letter-spacing: -0.055em;
+}
+.house-intro p {
+  font-size: 12px;
+  padding-bottom: 4px;
+}
+.house-intro p span {
+  color: var(--tomato);
+}
+.pizza-journey {
+  position: relative;
+  height: min(900px, 100svh);
+  min-height: 640px;
+  overflow: hidden;
+  background: #263d30;
+  color: #f5efdd;
+  isolation: isolate;
+}
+.journey-topline {
+  position: absolute;
+  top: 32px;
+  left: 5%;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 8px;
+  letter-spacing: 1.7px;
+  z-index: 4;
+  color: #d6d5bd;
+}
+.journey-topline a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+.journey-word {
+  position: absolute;
+  bottom: 12%;
+  left: 4%;
+  font-size: 15vw;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  color: #ffffff06;
+  user-select: none;
+}
+.journey-halo {
+  position: absolute;
+  width: 52vw;
+  height: 52vw;
+  right: -2vw;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #b8b47b1c, transparent 68%);
+  border: 1px solid #ffffff0b;
+}
+.journey-halo::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border: 1px solid #ffffff0b;
+  border-radius: 50%;
+}
+.journey-chapters {
+  position: absolute;
+  left: 6%;
+  top: 29%;
+  width: 31%;
+  z-index: 4;
+}
+.journey-chapter {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.45s,
+    transform 0.45s,
+    visibility 0.45s;
+}
+.journey-chapter:first-child {
+  opacity: 1;
+  visibility: visible;
+}
+.journey-chapter .eyebrow {
+  color: #c7cc9d;
+  font-size: 8px;
+}
+.journey-chapter h2 {
+  font-size: clamp(38px, 4.7vw, 72px);
+  letter-spacing: -0.055em;
+  margin: 27px 0 22px;
+}
+.journey-chapter h2 em {
+  color: #d7dea8;
+}
+.journey-chapter p {
+  color: #c5cbbd;
+  font-size: 12px;
+  max-width: 265px;
+  line-height: 1.9;
+}
+.journey-cta {
+  margin-top: 27px;
+  background: #e1e7b6;
+  border-color: #e1e7b6;
+  color: #283d30;
+  font-size: 11px;
+}
+.journey-cta:hover {
+  background: #f5efdd;
+}
+.pizza-journey .scene-reveal {
+  position: absolute;
+  top: 7%;
+  left: 29%;
+  width: 71%;
+  height: 84%;
+  z-index: 2;
+}
+.pizza-journey .ingredient-labels > span {
+  background: #243a2fe8;
+  color: #d7dea8;
+  border: 1px solid #cad2b738;
+  border-radius: 30px;
+  padding: 9px 12px;
+  font-size: 9px;
+  right: 3%;
+}
+.pizza-journey .ingredient-labels b {
+  color: #f5efdd;
+  font-size: 10px;
+}
+.journey-bottom {
+  position: absolute;
+  bottom: 30px;
+  left: 5%;
+  right: 5%;
+  z-index: 4;
+}
+.journey-steps {
+  display: flex;
+  gap: 35px;
+  color: #d6ddc16b;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+.journey-steps span {
+  transition: color 0.3s;
+}
+.journey-steps b {
+  font-weight: 400;
+  margin-left: 8px;
+}
+.journey-steps .is-active {
+  color: #e1e7b6;
+}
+.journey-scroll {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #c5cbbd;
+}
+.journey-progress {
+  height: 1px;
+  background: #e1e7b633;
+  margin-top: 22px;
+}
+.journey-progress i {
+  display: block;
+  height: 100%;
+  background: #e1e7b6;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.house-finish {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 35px 6%;
+  background: #ece9dd;
+}
+.house-finish .eyebrow {
+  font-size: 8px;
+  color: #8a715c;
+}
+.house-finish p {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #414739;
+}
+.finish-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.finish-options button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 15px;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  font-size: 11px;
+}
+.finish-options button.selected {
+  border-color: #8d9280;
+  background: #f5f3ec;
+}
+.finish-options i {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #d9d1c0;
+  border: 1px solid #0002;
+}
+.finish-options [data-finish="Charcoal"] {
+  background: #353b39;
+}
+.finish-options [data-finish="Terracotta"] {
+  background: #b45030;
+}
+.house-story {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.house-story h2 {
+  font-size: clamp(48px, 5vw, 76px);
+}
+.house-story h2 em {
+  color: var(--tomato);
+}
+.pizza-fallback {
+  position: absolute;
+  inset: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+.pizza-fallback img {
+  max-height: 80%;
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.pizza-fallback span {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.scene-preview.pizza-fallback {
+  inset: 15%;
+  font-size: inherit;
+}
+.pizza-journey.is-fallback .ingredient-labels {
+  display: none;
+}
+@media (min-width: 1600px) {
+  .house-hero {
+    max-width: 1500px;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 1000px) {
+  .house-hero {
+    min-height: 720px;
+  }
+  .house-hero-copy h1 {
+    font-size: 76px;
+  }
+  .house-hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .house-hero-art {
+    width: 74%;
+    right: -14%;
+    top: 10%;
+  }
+  .house-stamp {
+    width: 85px;
+    height: 85px;
+    top: 82px;
+  }
+  .house-stamp span {
+    font-size: 6px;
+  }
+  .house-intro {
+    padding-inline: 6%;
+  }
+  .journey-steps {
+    gap: 18px;
+    font-size: 8px;
+  }
+  .journey-chapters {
+    left: 5%;
+    width: 35%;
+  }
+  .journey-chapter h2 {
+    font-size: 45px;
+  }
+  .house-finish > .text-link {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .house-hero {
+    height: auto;
+    min-height: 850px;
+    margin: 0 6%;
+  }
+  .house-topline {
+    font-size: 7px;
+    letter-spacing: 1.2px;
+    padding-top: 22px;
+  }
+  .house-topline > span:last-child {
+    display: none;
+  }
+  .house-hero-copy {
+    padding-top: 46px;
+  }
+  .house-hero-copy .eyebrow {
+    font-size: 7px;
+  }
+  .house-hero-copy h1 {
+    font-size: clamp(49px, 12.8vw, 76px);
+    margin-top: 20px;
+  }
+  .house-hero-copy p {
+    font-size: 12px;
+    margin: 20px 0;
+  }
+  .house-hero-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+  .house-hero-actions .pill.dark {
+    padding: 15px 18px;
+    gap: 15px;
+    font-size: 10px;
+  }
+  .house-hero-actions .text-link {
+    font-size: 9px;
+    max-width: 115px;
+  }
+  .house-hero-art {
+    top: 365px;
+    height: 400px;
+    width: 122%;
+    right: -11%;
+  }
+  .hero-watermark {
+    top: 54%;
+    left: -18%;
+    font-size: 130px;
+  }
+  .house-stamp {
+    top: 378px;
+    right: 0;
+    width: 74px;
+    height: 74px;
+    gap: 6px;
+  }
+  .house-stamp svg {
+    width: 21px;
+  }
+  .house-stamp span {
+    font-size: 5px;
+  }
+  .orbit-caption {
+    font-size: 6px;
+    right: 19%;
+    top: 15%;
+  }
+  .hero-product-caption {
+    bottom: 88px;
+    right: 0;
+    gap: 10px;
+  }
+  .hero-product-caption div > span {
+    font-size: 7px;
+  }
+  .hero-product-caption small {
+    font-size: 9px;
+  }
+  .hero-product-caption > b {
+    font-size: 30px;
+  }
+  .caption-rule {
+    width: 28px;
+  }
+  .house-hero-bottom {
+    font-size: 7px;
+    letter-spacing: 0.6px;
+    bottom: 23px;
+  }
+  .house-hero-bottom > span {
+    display: none;
+  }
+  .house-hero-bottom a {
+    gap: 10px;
+  }
+  .house-marquee {
+    padding: 16px 0;
+  }
+  .house-marquee span {
+    font-size: 10px;
+  }
+  .house-marquee b {
+    margin: 0 20px;
+  }
+  .house-intro {
+    padding: 70px 6% 50px;
+  }
+  .house-intro .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1.4px;
+  }
+  .house-intro > div {
+    display: block;
+    margin-top: 22px;
+  }
+  .house-intro h2 {
+    font-size: 37px;
+  }
+  .house-intro p {
+    margin-top: 22px;
+    font-size: 11px;
+  }
+  .pizza-journey {
+    height: 100svh;
+    min-height: 690px;
+    max-height: 900px;
+  }
+  .journey-topline {
+    top: 20px;
+    left: 6%;
+    right: 6%;
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .journey-topline a {
+    font-size: 0;
+    gap: 0;
+  }
+  .journey-chapters {
+    top: 78px;
+    left: 6%;
+    width: 88%;
+  }
+  .journey-chapter .eyebrow {
+    font-size: 7px;
+  }
+  .journey-chapter h2 {
+    font-size: 40px;
+    margin: 17px 0 13px;
+  }
+  .journey-chapter p {
+    font-size: 11px;
+    max-width: 275px;
+  }
+  .journey-cta {
+    margin-top: 13px;
+    padding: 10px 15px;
+    font-size: 10px;
+  }
+  .pizza-journey .scene-reveal {
+    left: -12%;
+    width: 124%;
+    top: 34%;
+    height: 57%;
+  }
+  .journey-halo {
+    width: 100vw;
+    height: 100vw;
+    top: 64%;
+    right: 0;
+  }
+  .journey-word {
+    bottom: 17%;
+    font-size: 20vw;
+  }
+  .pizza-journey .ingredient-labels > span {
+    font-size: 7px;
+    padding: 6px 8px;
+    right: 4%;
+  }
+  .pizza-journey .ingredient-labels b {
+    font-size: 8px;
+    margin-left: 6px;
+  }
+  .journey-bottom {
+    left: 6%;
+    right: 6%;
+    bottom: 25px;
+  }
+  .journey-steps {
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 6px;
+    letter-spacing: 0.7px;
+  }
+  .journey-steps b {
+    margin-left: 4px;
+  }
+  .journey-scroll {
+    display: none;
+  }
+  .journey-progress {
+    margin-top: 18px;
+  }
+  .house-finish {
+    display: block;
+    padding: 28px 6%;
+  }
+  .finish-options {
+    margin-top: 18px;
+    gap: 3px;
+  }
+  .finish-options button {
+    padding: 10px 12px;
+    font-size: 10px;
+  }
+  .house-story {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .house-marquee > div {
+    animation: none;
+  }
+}

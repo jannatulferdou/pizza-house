@@ -1,0 +1,58 @@
+{
+  "tool": "Built-in image_gen",
+  "purpose": "Original fictional menu photography matched to declared toppings",
+  "prompts": [
+    {
+      "id": "pepperoni",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch CLASSIC BEEF PEPPERONI pizza, visibly topped with many distinct crisp red beef pepperoni rounds, melted mozzarella and red tomato sauce. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling, no other food, no hands, no utensils, no text, no watermark. Pizza must clearly look like pepperoni, not margherita. Single photograph, not a collage."
+    },
+    {
+      "id": "pizza",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch HOUSE MARGHERITA pizza, visibly topped with exactly red tomato sauce, creamy white pools of mozzarella and fresh green basil leaves. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "bbq-chicken",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch BBQ CHICKEN pizza, visibly topped with exactly roasted chicken pieces, dark amber BBQ sauce drizzle, fine red onion crescents and melted mozzarella; no pepperoni. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "four-cheese",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch FOUR CHEESE pizza, visibly topped with exactly four distinct cheeses: creamy mozzarella, golden cheddar, shaved parmesan and small blue cheese crumbles; no vegetables, no meat. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "veggie",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch GARDEN VEGGIE pizza, visibly topped with exactly red and green bell pepper strips, red onion, black olive rings, sliced mushrooms and melted mozzarella; no meat. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "mushroom",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch GARLIC MUSHROOM pizza, visibly topped with exactly generous browned mushroom slices, thin roasted garlic slices, chopped parsley and mozzarella; no meat, no olives. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "hawaiian",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch HAWAIIAN CHICKEN pizza, visibly topped with exactly golden pineapple chunks, grilled chicken pieces, mozzarella and red tomato sauce; no ham, no pepperoni. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "meat-feast",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch MEAT FEAST pizza, visibly topped with exactly red beef pepperoni rounds, browned beef sausage crumbles, roasted chicken chunks and mozzarella. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "chicken-tikka",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch CHICKEN TIKKA pizza, visibly topped with exactly vivid orange spiced tikka chicken chunks with charred edges, green bell pepper pieces, onion petals and mozzarella. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "spicy-beef",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch SPICY BEEF pizza, visibly topped with exactly browned seasoned minced beef, sliced green jalapeno rings, red onion and mozzarella; no pepperoni. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "mediterranean",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch MEDITERRANEAN pizza, visibly topped with exactly white feta cubes, glossy black olives, red tomato pieces, wilted green spinach and mozzarella. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "pesto",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch BASIL PESTO pizza, visibly topped with exactly vivid green basil pesto base and swirls, red cherry tomatoes, white melted mozzarella, shaved parmesan and fresh basil; no meat. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    },
+    {
+      "id": "vegan",
+      "prompt": "Use case: product-mockup. Asset: premium PIZZA HOUSE menu food photograph, square composition. One whole authentic hand-stretched 12-inch PLANT LOVER VEGAN pizza, visibly topped with exactly red tomato pieces, sliced mushrooms, green bell pepper strips, black olives and modest melted plant-based cheese; no meat. Golden blistered raised crust. Three-quarter overhead view at 55 degrees, entire pizza visible, centered with 10 percent margin on a matte warm ivory ceramic plate on ivory limestone. Soft directional daylight from upper left, appetizing realistic textures, subtle contact shadow, restrained premium editorial food styling. No other food, hands, utensils, text or watermark. Single photograph, not a collage. Toppings must clearly distinguish this specific pizza variety."
+    }
+  ]
+}
