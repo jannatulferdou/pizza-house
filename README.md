@@ -2,12 +2,14 @@
 
 A modular TypeScript food storefront with React, Vite, an Express API and persistent SQLite storage. The original Three.js pizza experience and all 15 menu products are retained.
 
+Separate npm workspaces live in [frontend](./frontend), [backend](./backend), and [shared](./shared). See [DEPLOYMENT.md](./DEPLOYMENT.md) for Vercel frontend settings, backend hosting, environment variables and persistent storage.
+
 ## Run locally
 
 Requires Node.js 22.13 or newer.
 
 1. Run `npm install` (use `npm.cmd` in PowerShell if script execution is disabled).
-2. Copy `.env.example` to `.env`. Set an admin email and a unique password of at least 10 characters **before the first start** to create a manager account. There is no default administrator password. Existing accounts are never automatically promoted or overwritten.
+2. Copy `backend/.env.example` to `backend/.env`. Set an admin email and a unique password of at least 10 characters **before the first start** to create a manager account. There is no default administrator password. Existing accounts are never automatically promoted or overwritten.
 3. Run `npm run dev`. This starts the web app at http://127.0.0.1:5173 and the API at http://127.0.0.1:3001. Vite proxies /api requests.
 4. Open /account to register or sign in. Administrators can open /admin.
 
@@ -15,17 +17,17 @@ The initial menu, stock and HOUSE10 offer are seeded once. Accounts, sessions, p
 
 ## Structure
 
-- [src/app](./src/app): application routes, shared store, authentication state and persistent cart.
-- [src/modules](./src/modules): home/3D scene, catalog, cart, checkout, account, orders, admin and information pages.
-- [src/modules/admin/components](./src/modules/admin/components): independent product and offer editors, composed by the admin page.
-- [src/modules/orders/OrderHistory.tsx](./src/modules/orders/OrderHistory.tsx): reusable order history with filters, refresh and retry, shared by account and orders pages.
-- [src/components](./src/components): accessible dialog, layout and feedback components.
-- [src/shared](./src/shared): shared TypeScript contracts, pricing rules and API client.
-- [src/shared/order-status.ts](./src/shared/order-status.ts): one set of order transitions used by the admin UI and API; the server additionally enforces authorization and payment checks.
-- [src/server/modules](./src/server/modules): authentication, products/reviews, ordering, payments and admin endpoints.
-- [src/server/lib](./src/server/lib): database and error handling.
-- [src/server/tests](./src/server/tests): API and transaction tests using an isolated in-memory database.
-- [src/styles](./src/styles): responsive storefront and management interface styles.
+- [frontend/src/app](./frontend/src/app): application routes, shared store, authentication state and persistent cart.
+- [frontend/src/modules](./frontend/src/modules): home/3D scene, catalog, cart, checkout, account, orders, admin and information pages.
+- [frontend/src/modules/admin/components](./frontend/src/modules/admin/components): independent product and offer editors, composed by the admin page.
+- [frontend/src/modules/orders/OrderHistory.tsx](./frontend/src/modules/orders/OrderHistory.tsx): reusable order history with filters, refresh and retry, shared by account and orders pages.
+- [frontend/src/components](./frontend/src/components): accessible dialog, layout and feedback components.
+- [shared/src](./shared/src): shared TypeScript contracts and pricing rules. The browser API client is in [frontend/src/shared/api.ts](./frontend/src/shared/api.ts).
+- [shared/src/order-status.ts](./shared/src/order-status.ts): one set of order transitions used by the admin UI and API; the server additionally enforces authorization and payment checks.
+- [backend/frontend/src/modules](./backend/frontend/src/modules): authentication, products/reviews, ordering, payments and admin endpoints.
+- [backend/src/lib](./backend/src/lib): database and error handling.
+- [backend/src/tests](./backend/src/tests): API and transaction tests using an isolated in-memory database.
+- [frontend/src/styles](./frontend/src/styles): responsive storefront and management interface styles.
 
 ## Features
 
@@ -53,10 +55,10 @@ Order creation is idempotent. Unsigned failure/cancellation callbacks cannot cha
 
 - `npm run typecheck`: strict TypeScript checks across client and server.
 - `npm test`: isolated tests covering authentication, CSRF/origin checks, authorization, ownership, coupons, inventory transactions, duplicate checkout, order transitions, reviews and payment verification.
-- `npm run build`: type-check and build the client.
+- `npm run build`: build the shared package, compiled backend and frontend. Use `npm run build:frontend` or `npm run build:backend` to build one app.
 - `npm run lint`: optional source linting.
 - `npm run preview`: preview the built client; run the API separately with `npm run dev:api`.
-- `npm start`: serve the built client and API together in production mode. Requires APP_URL=https://your-domain and a reverse proxy forwarding to 127.0.0.1:3001. Keep development dependencies installed because the TypeScript server runs with tsx.
+- `npm start`: run the compiled backend only. Requires `npm run build:backend` first, `APP_URL=https://your-frontend-domain` and persistent SQLite storage. The production server binds to `0.0.0.0` by default. The frontend is deployed separately and proxies `/api` to this backend. Production runs on Node without tsx.
 
 The storefront is a working local application with sample business content. Before accepting actual orders, verify recipes, allergens, availability, delivery zones, contact details and policies, then complete merchant onboarding and sandbox/live payment verification. Email verification, password recovery and notification delivery are available through configured notification adapters. Automated refunds are not implemented. Authentication rate limits are process-local; this SQLite deployment is intended for a single server process. The SQLite API in Node 22 prints an experimental-feature notice.
 
@@ -65,9 +67,9 @@ ScrollTrigger's pin wrapper is restored in layout-effect cleanup before React re
 
 ## Visual assets
 
-The Drinks category also includes Orange cooler (BDT 150), Watermelon cooler (BDT 160), and Classic iced tea (BDT 130), each with a sample 330 ml serving and initial stock of 50. Their TypeScript menu definitions are in [drinks.ts](./src/server/modules/products/drinks.ts). The `soft-drinks-v1` migration adds them once to both existing and new databases, preserving later admin edits. They use the existing catalog, cart, checkout, inventory and combo-component flows. Names, descriptions and ingredients include Bangla translations. These recipes and prices are editable sample menu content; the iced tea contains caffeine.
+The Drinks category also includes Orange cooler (BDT 150), Watermelon cooler (BDT 160), and Classic iced tea (BDT 130), each with a sample 330 ml serving and initial stock of 50. Their TypeScript menu definitions are in [drinks.ts](./backend/frontend/src/modules/products/drinks.ts). The `soft-drinks-v1` migration adds them once to both existing and new databases, preserving later admin edits. They use the existing catalog, cart, checkout, inventory and combo-component flows. Names, descriptions and ingredients include Bangla translations. These recipes and prices are editable sample menu content; the iced tea contains caffeine.
 
-Real drink stock photos are hosted locally under [public/images](./public/images), under the [Pexels license](https://www.pexels.com/license/). They illustrate the drinks rather than documenting food prepared by this shop:
+Real drink stock photos are hosted locally under [frontend/public/images](./frontend/public/images), under the [Pexels license](https://www.pexels.com/license/). They illustrate the drinks rather than documenting food prepared by this shop:
 
 - Orange cooler: [Polina Tankilevitch / Pexels](https://www.pexels.com/photo/person-holding-glass-with-orange-juice-4443515/).
 - Watermelon cooler: [Karen Laårk Boshoff / Pexels](https://www.pexels.com/photo/a-glass-of-red-juice-with-straws-and-a-slice-of-watermelon-on-the-rim-8281944/).
@@ -77,7 +79,7 @@ Photography is illustrative and served locally. Original Unsplash photo IDs: 157
 
 ## Original pizza menu imagery
 
-All 13 pizzas have individual AI-created concept photographs matched to their listed ingredients, generated with the built-in image_gen tool. These are fictional food illustrations rather than photographs of real restaurant dishes. The shared prompt specifies a whole pizza on an ivory plate and limestone background, a 55-degree overhead view, warm upper-left daylight, and pizza-specific toppings. Full per-image prompts are recorded in [menu-image-prompts.json](./menu-image-prompts.json). Optimized 900-pixel JPEGs are in [public/images](./public/images), named pizza-{menu-id}.jpg, and are shared by menu cards and cart thumbnails.
+All 13 pizzas have individual AI-created concept photographs matched to their listed ingredients, generated with the built-in image_gen tool. These are fictional food illustrations rather than photographs of real restaurant dishes. The shared prompt specifies a whole pizza on an ivory plate and limestone background, a 55-degree overhead view, warm upper-left daylight, and pizza-specific toppings. Full per-image prompts are recorded in [menu-image-prompts.json](./menu-image-prompts.json). Optimized 900-pixel JPEGs are in [frontend/public/images](./frontend/public/images), named pizza-{menu-id}.jpg, and are shared by menu cards and cart thumbnails.
 
 ## Verification notes
 
@@ -91,8 +93,8 @@ The dependency audit reports 12 moderate development-tool findings through the e
 - **Reorder:** order history and order details can add a previous meal to the current bag, preserving pizza options. Current prices and availability are checked; unavailable orders are rejected with a message rather than silently dropping items.
 - **Account:** up to ten saved addresses, favourites, notification preferences and the latest fifty order notifications are stored per customer. Checkout can load a saved address. Address edit/delete and favourites never cross account boundaries.
 - **Loyalty:** each completed, paid order earns one point for every BDT 20 of food after discounts, excluding delivery. Each redeemed point deducts BDT 1, capped at 20% of the food total after any coupon. Points are reserved atomically when ordering, returned once on cancellation, and earned once on completion. Historical orders placed before this feature do not earn points retroactively.
-- **Pickup and scheduled orders:** configure actual branches through `SHOP_BRANCHES` in [.env.example](./.env.example). Without branch configuration, pickup stays disabled and the locations page explicitly says details have not been published. Delivery remains available in the sample delivery zones. Configured branch hours apply to delivery as well as pickup. Hours use Bangladesh time (UTC+6), Sunday=0 through Saturday=6; only same-day opening hours are supported. Pickup has no delivery charge and uses “Ready for pickup” / “Collected” labels. Scheduling accepts one hour to seven days ahead, during opening hours. Stock is reserved immediately; staff start preparation manually, at most thirty minutes before the scheduled time. Scheduled times are requested fulfilment times, not delivery guarantees.
-- **Language:** the header switches English/Bengali presentation text and remembers the selection locally. Main navigation, menu controls, account, checkout, order tracking, reports, FAQs, policy copy and recovery confirmations have Bengali translations. Merchant-entered product descriptions, addresses and some dynamic/provider messages retain their source language. Translation strings live in [translations.ts](./src/app/translations.ts).
+- **Pickup and scheduled orders:** configure actual branches through `SHOP_BRANCHES` in [backend/.env.example](./backend/.env.example). Without branch configuration, pickup stays disabled and the locations page explicitly says details have not been published. Delivery remains available in the sample delivery zones. Configured branch hours apply to delivery as well as pickup. Hours use Bangladesh time (UTC+6), Sunday=0 through Saturday=6; only same-day opening hours are supported. Pickup has no delivery charge and uses “Ready for pickup” / “Collected” labels. Scheduling accepts one hour to seven days ahead, during opening hours. Stock is reserved immediately; staff start preparation manually, at most thirty minutes before the scheduled time. Scheduled times are requested fulfilment times, not delivery guarantees.
+- **Language:** the header switches English/Bengali presentation text and remembers the selection locally. Main navigation, menu controls, account, checkout, order tracking, reports, FAQs, policy copy and recovery confirmations have Bengali translations. Merchant-entered product descriptions, addresses and some dynamic/provider messages retain their source language. Translation strings live in [translations.ts](./frontend/src/app/translations.ts).
 - **Reports:** admin reports show paid, completed sales by completion date in Bangladesh time, best-selling products and active products with five or fewer units available. Collected sales include delivery and deduct coupons/points. Product-level gross sales are shown before order discounts; combos count as the sold combo, not additional sales of their components.
 
 ### Email, SMS and recovery setup
@@ -119,6 +121,6 @@ The persistent outbox runs every fifteen seconds, attempts delivery up to eight 
 
 ### Additional verification
 
-The customer-feature test suite uses a separate in-memory SQLite database and mocked outbound delivery. It covers account isolation, address validation, favourites, combo reservations and recipe-change cancellation, pickup, invalid schedules, preparation timing, loyalty idempotency, notification retry, email verification and password recovery. Browser checks with a temporary in-memory shop covered saved-address autofill, favourites, language persistence after reload, scheduled pickup checkout, reorder, admin fulfilment and report totals. Checkout and reports were checked at a 390-pixel viewport; the report navigation overflow found during that check was corrected. The lemon cooler uses a locally hosted real stock photograph by İbrahim Hakkı Uçman from [Pexels](https://www.pexels.com/photo/lemon-juice-on-a-clear-glass-with-drinking-straw-4134388/), available under the [Pexels license](https://www.pexels.com/license/). The file is [lemon-cooler.jpg](./public/images/lemon-cooler.jpg). Existing databases replace only the original lemon-cooler illustration path, preserving product edits and inventory. This is reference photography, not a photograph taken at this shop.
+The customer-feature test suite uses a separate in-memory SQLite database and mocked outbound delivery. It covers account isolation, address validation, favourites, combo reservations and recipe-change cancellation, pickup, invalid schedules, preparation timing, loyalty idempotency, notification retry, email verification and password recovery. Browser checks with a temporary in-memory shop covered saved-address autofill, favourites, language persistence after reload, scheduled pickup checkout, reorder, admin fulfilment and report totals. Checkout and reports were checked at a 390-pixel viewport; the report navigation overflow found during that check was corrected. The lemon cooler uses a locally hosted real stock photograph by İbrahim Hakkı Uçman from [Pexels](https://www.pexels.com/photo/lemon-juice-on-a-clear-glass-with-drinking-straw-4134388/), available under the [Pexels license](https://www.pexels.com/license/). The file is [lemon-cooler.jpg](./frontend/public/images/lemon-cooler.jpg). Existing databases replace only the original lemon-cooler illustration path, preserving product edits and inventory. This is reference photography, not a photograph taken at this shop.
 
 Latest follow-up: all 23 server/shared-logic tests pass, including regression coverage for preserving existing cart variants on reorder and rejecting duplicate combo components. Reorder merges into the latest bag after fetching availability, and checkout immediately refreshes the customer's loyalty balance. A first test run encountered a local HTTP transport failure; the complete rerun passed. The integrated browser could not be opened for this follow-up, so the earlier browser checks above were not repeated.

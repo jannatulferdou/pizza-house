@@ -3,51 +3,37 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "concurrently -k -n api,web \"tsx watch src/server/index.ts\" \"vite\"",
-    "dev:api": "tsx watch src/server/index.ts",
-    "dev:web": "vite",
-    "typecheck": "tsc --noEmit",
-    "build": "tsc --noEmit && vite build",
-    "test": "tsx --test src/server/tests/*.test.ts",
-    "lint": "eslint .",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\" src/styles/shop.css vite.config.ts tsconfig.json eslint.config.js package.json README.md",
-    "preview": "vite preview",
-    "start": "tsx src/server/production.ts"
+  "engines": {
+    "node": ">=22.13.0"
   },
-  "dependencies": {
-    "dotenv": "^18.0.9",
-    "express": "^5.3.0",
-    "express-rate-limit": "^8.7.2",
-    "gsap": "^3.15.0",
-    "helmet": "^8.3.0",
-    "lucide-react": "^1.66.0",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "react-router-dom": "^7.18.5",
-    "three": "^0.187.0",
-    "zod": "^4.6.7"
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm run dev --workspace=@pizza-house/backend\" \"npm run dev --workspace=@pizza-house/frontend\"",
+    "dev:api": "npm run dev --workspace=@pizza-house/backend",
+    "dev:web": "npm run dev --workspace=@pizza-house/frontend",
+    "typecheck": "npm run build --workspace=@pizza-house/shared && npm run typecheck --workspaces",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:frontend": "npm run build --workspace=@pizza-house/frontend",
+    "build:backend": "npm run build --workspace=@pizza-house/backend",
+    "test": "npm run test --workspace=@pizza-house/backend && node --test frontend/scripts/*.test.mjs",
+    "test:deployment": "npm run build:backend && node --test scripts/deployment.test.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write \"{frontend,backend,shared}/src/**/*.{ts,tsx}\" frontend/vite.config.ts eslint.config.js package.json README.md",
+    "preview": "npm run preview --workspace=@pizza-house/frontend",
+    "start": "npm start --workspace=@pizza-house/backend"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/express": "^5.0.6",
-    "@types/node": "^22.20.5",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@types/three": "^0.187.0",
-    "@vitejs/plugin-react": "^6.1.2",
     "concurrently": "^10.0.6",
     "eslint": "^10.13.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.13.0",
     "prettier": "^3.9.10",
-    "tsx": "^4.23.15",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.1",
-    "vite": "^8.3.5"
-  },
-  "engines": {
-    "node": ">=22.13.0"
+    "typescript-eslint": "^8.72.1"
   }
 }

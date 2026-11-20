@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { resolve, relative, dirname } from "node:path";
 const files = [];
 function walk(dir) { for (const item of readdirSync(dir, { withFileTypes: true })) { const path = resolve(dir, item.name); if (item.isDirectory()) walk(path); else if (path.endsWith(".tsx") && !path.endsWith("PizzaScene.tsx")) files.push(path); } }
-walk("src/modules"); walk("src/components");
+walk("frontend/src/modules"); walk("frontend/src/components");
 for (const file of files) {
   const original = readFileSync(file, "utf8");
   if (original.includes('import { T }')) {
@@ -29,7 +29,7 @@ for (const file of files) {
     return root => ts.visitNode(root, visitor);
   }]);
   if (count) {
-    let path = relative(dirname(file), resolve("src/app/Locale")).replaceAll("\\", "/"); if (!path.startsWith(".")) path = "./" + path;
+    let path = relative(dirname(file), resolve("frontend/src/app/Locale")).replaceAll("\\", "/"); if (!path.startsWith(".")) path = "./" + path;
     writeFileSync(file, `import { T } from ${JSON.stringify(path)};\n` + ts.createPrinter().printFile(result.transformed[0]));
   }
   result.dispose();
